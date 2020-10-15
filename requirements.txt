@@ -31,3 +31,4 @@ text-unidecode==1.3
 urllib3==1.25.10
 virtualenv==20.0.33
 virtualenv-clone==0.5.4
+django-cors-headers==3.5.0
