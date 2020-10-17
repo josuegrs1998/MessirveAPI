@@ -12,6 +12,7 @@ class Subcategoria(models.Model):
     nombre = models.CharField(max_length=60)
     descripcion = models.CharField(max_length=120)
     idCategoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    #productos = models.ManyToManyField('Producto', related_name="subcategoria_prod", null=True, blank=True)
 
     def __str__(self):
         return self.nombre
@@ -31,10 +32,12 @@ class Producto(models.Model):
     tipoMaterial = models.CharField(max_length=30)
     exento = models.BooleanField()
     idMarca = models.ForeignKey(Marca, on_delete=models.CASCADE)
-    subCategorias = models.ManyToManyField(Subcategoria, related_name='subCategorias', related_query_name="productos")
+    subcategorias = models.ManyToManyField(Subcategoria, related_name="producto_sub")
 
     def __str__(self):
         return self.nombre
+
+
 
 class Tags(models.Model):
     nombre = models.CharField(max_length=60)

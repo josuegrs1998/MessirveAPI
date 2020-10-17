@@ -13,7 +13,7 @@ class ListaCategoria(ListCreateAPIView):
     #permission_classes =(permissions.IsAuthenticated,)
     def perform_create(self, serializer):
         serializer.save()
-
+        
     def get_queryset(self):
         return Categoria.objects.all()
     
@@ -37,6 +37,7 @@ class ListaSubcategoria(ListCreateAPIView):
         serializer.save()
 
     def get_queryset(self):
+
         return Subcategoria.objects.all()
     
     filter_backends = (DjangoFilterBackend, SearchFilter)
@@ -103,14 +104,14 @@ class DetalleProducto(RetrieveUpdateDestroyAPIView): #Para buscar 1 editar 1
 #class ListaSubProducto(ListCreateAPIView):
  #   serializer_class = SubcategoriaProductoSerializer
     #permission_classes =(permissions.IsAuthenticated,)
-  #  def perform_create(self, serializer):
-   #     serializer.save()
 
-    #def get_queryset(self):
- #       return SubcategoriaProducto.objects.all()
+ #   def get_queryset(self):
+  #      return Subcategoria.objects.all()
     
-  #  filter_backends = (DjangoFilterBackend, SearchFilter)
-   # filter_fields = ('id', 'idProducto','idSubcategoria')
+   # filter_backends = (DjangoFilterBackend, SearchFilter)
+  #  filter_fields = '__all__'
+
+   # search_fields = ('productos')
 
 
 #class DetalleSubProducto(RetrieveUpdateDestroyAPIView): #Para buscar 1 editar 1

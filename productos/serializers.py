@@ -12,7 +12,7 @@ class SubcategoriaSerializer(ModelSerializer):
 
     class Meta:
         model = Subcategoria
-        fields = ['id', 'nombre', 'descripcion', 'idCategoria']
+        fields = '__all__'
 
 class MarcaSerializer(ModelSerializer):
 
@@ -21,16 +21,16 @@ class MarcaSerializer(ModelSerializer):
         fields =['id','nombre', 'descripcion']
 
 class ProductoSerializer(ModelSerializer):
-    subCategorias = SubcategoriaSerializer(many=True)
+    subcategorias = SubcategoriaSerializer(many=True)
     class Meta:
         model = Producto
-        fields ='__all__'
+        fields = '__all__'
 
 #class SubcategoriaProductoSerializer(ModelSerializer):
-
-    #class Meta:
-     #   model = SubcategoriaProducto
-      #  fields =['id', 'idProducto', 'idSubcategoria']
+  #  productos = ProductoSerializer(many=True)
+   # class Meta:
+    #    model = Subcategoria
+     #   fields ='__all__'
 
 class TagSerializer(ModelSerializer):
     
