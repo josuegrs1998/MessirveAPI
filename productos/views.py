@@ -84,7 +84,11 @@ class ListaProducto(ListCreateAPIView):
         serializer.save()
 
     def get_queryset(self):
-        return Producto.objects.all()
+        request = self.request.GET
+        queryset = Producto.objects.all()
+        if(request.get('subcategorias')):
+            queryset = queryset.filter(subcategorias__nombre=request.get('subcategorias'))
+        return queryset
     
     filter_backends = (DjangoFilterBackend, SearchFilter)
     filter_fields = ('id', 'nombre','idMarca','codigoProducto')
@@ -111,7 +115,7 @@ class ListaSubProducto(ListCreateAPIView):
     filter_backends = (DjangoFilterBackend, SearchFilter)
     filter_fields = '__all__'
 
-    search_fields = ('productos')
+    search_fields = ('producto_set')
 
 
 #class DetalleSubProducto(RetrieveUpdateDestroyAPIView): #Para buscar 1 editar 1
