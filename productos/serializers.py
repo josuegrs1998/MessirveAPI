@@ -26,11 +26,11 @@ class ProductoSerializer(ModelSerializer):
         model = Producto
         fields = '__all__'
 
-#class SubcategoriaProductoSerializer(ModelSerializer):
-  #  productos = ProductoSerializer(many=True)
-   # class Meta:
-    #    model = Subcategoria
-     #   fields ='__all__'
+class SubcategoriaProductoSerializer(ModelSerializer):
+    producto_set = ProductoSerializer(many=True)
+    class Meta:
+        model = Subcategoria
+        fields ='__all__'
 
 class TagSerializer(ModelSerializer):
     

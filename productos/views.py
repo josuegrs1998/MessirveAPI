@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Categoria, Subcategoria, Marca, Producto, TagProducto, Tags, Imagenes, TallaProducto, Talla
-from .serializers import (CategoriaSerializer, SubcategoriaSerializer, MarcaSerializer,
+from .serializers import (CategoriaSerializer, SubcategoriaSerializer, MarcaSerializer, SubcategoriaProductoSerializer,
 ProductoSerializer, TallaSerializer, TallaProductoSerializer, TagProductoSerializer, TagSerializer, ImagenesSerializer)
 from rest_framework import permissions
 from rest_framework.filters import SearchFilter
@@ -37,7 +37,7 @@ class ListaSubcategoria(ListCreateAPIView):
         serializer.save()
 
     def get_queryset(self):
-
+        
         return Subcategoria.objects.all()
     
     filter_backends = (DjangoFilterBackend, SearchFilter)
@@ -101,17 +101,17 @@ class DetalleProducto(RetrieveUpdateDestroyAPIView): #Para buscar 1 editar 1
 
 #------------------------------------------SUBCATEGORIA PRODUCTO---------------------------------------------#
 
-#class ListaSubProducto(ListCreateAPIView):
- #   serializer_class = SubcategoriaProductoSerializer
+class ListaSubProducto(ListCreateAPIView):
+    serializer_class = SubcategoriaProductoSerializer
     #permission_classes =(permissions.IsAuthenticated,)
 
- #   def get_queryset(self):
-  #      return Subcategoria.objects.all()
+    def get_queryset(self):
+        return Subcategoria.objects.all()
     
-   # filter_backends = (DjangoFilterBackend, SearchFilter)
-  #  filter_fields = '__all__'
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = '__all__'
 
-   # search_fields = ('productos')
+    search_fields = ('productos')
 
 
 #class DetalleSubProducto(RetrieveUpdateDestroyAPIView): #Para buscar 1 editar 1
