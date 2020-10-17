@@ -22,6 +22,7 @@ class MarcaSerializer(ModelSerializer):
 
 class ProductoSerializer(ModelSerializer):
     subcategorias = SubcategoriaSerializer(many=True)
+    marca = MarcaSerializer()
     class Meta:
         model = Producto
         fields = '__all__'
