@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_filters',
     'corsheaders',
     'autenticacion',
     'productos'
@@ -47,7 +48,8 @@ REST_FRAMEWORK ={
     'DEFULT_AUTHENTICATION_CLASSES':(
         'autenticacion.backends.JWTAutenticacion',
         'rest_framework.authentication.BasicAuthentication'
-    )
+    ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 MIDDLEWARE = [

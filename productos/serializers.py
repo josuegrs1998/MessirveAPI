@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Categoria,Subcategoria, Marca, Producto, SubcategoriaProducto, Tags, TagProducto, Imagenes, Talla, TallaProducto
+from .models import Categoria,Subcategoria, Marca, Producto, Tags, TagProducto, Imagenes, Talla, TallaProducto
 
 class CategoriaSerializer(ModelSerializer):
 
@@ -21,16 +21,16 @@ class MarcaSerializer(ModelSerializer):
         fields =['id','nombre', 'descripcion']
 
 class ProductoSerializer(ModelSerializer):
-
+    subCategorias = SubcategoriaSerializer(many=True)
     class Meta:
         model = Producto
-        fields =['id','nombre','codigoProducto', 'descripcion', 'activo', 'tipoMaterial', 'exento', 'idMarca']
+        fields ='__all__'
 
-class SubcategoriaProductoSerializer(ModelSerializer):
+#class SubcategoriaProductoSerializer(ModelSerializer):
 
-    class Meta:
-        model = SubcategoriaProducto
-        fields =['id', 'idProducto', 'idSubcategoria']
+    #class Meta:
+     #   model = SubcategoriaProducto
+      #  fields =['id', 'idProducto', 'idSubcategoria']
 
 class TagSerializer(ModelSerializer):
     

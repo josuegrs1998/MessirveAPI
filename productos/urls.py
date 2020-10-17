@@ -1,5 +1,8 @@
 from django.urls import path
-from .views import ListaCategoria, DetalleCategoria, ListaSubcategoria, ListaImagenes, DetalleImagenes, ListaTalla, DetalleTalla, ListaTallaProducto, DetalleTallaProducto ,DetalleSubcategoria,ListaMarca, DetalleMarca, ListaProducto, ListaTag, DetalleTag, ListaTagProductos, DetalleTagProductos ,DetalleProducto, ListaSubProducto, DetalleSubProducto
+from .views import (ListaCategoria, DetalleCategoria, ListaSubcategoria, ListaImagenes,
+DetalleImagenes, ListaTalla, DetalleTalla, ListaTallaProducto, DetalleTallaProducto,
+DetalleSubcategoria,ListaMarca, DetalleMarca, ListaProducto, ListaTag, DetalleTag,
+ListaTagProductos, DetalleTagProductos, DetalleProducto)
 
 
 urlpatterns =[
@@ -11,8 +14,8 @@ urlpatterns =[
     path('marcas/<int:id>', DetalleMarca.as_view()),
     path('productos', ListaProducto.as_view()),
     path('productos/<int:id>', DetalleProducto.as_view()),
-    path('subproductos', ListaSubProducto.as_view()),
-    path('subproductos/<int:id>', DetalleSubProducto.as_view()),
+    #path('subproductos', ListaSubProducto.as_view()),
+    #path('subproductos/<int:id>', DetalleSubProducto.as_view()),
     path('tags', ListaTag.as_view()),
     path('tags/<int:id>', DetalleTag.as_view()),
     path('tagproductos', ListaTagProductos.as_view()),
