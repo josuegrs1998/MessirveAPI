@@ -31,7 +31,7 @@ class Producto(models.Model):
     tipoMaterial = models.CharField(max_length=30)
     exento = models.BooleanField()
     idMarca = models.ForeignKey(Marca, on_delete=models.CASCADE)
-    subCategorias = models.ManyToManyField(Subcategoria, related_name='subCategorias',)
+    subCategorias = models.ManyToManyField(Subcategoria, related_name='subCategorias', related_query_name="productos")
 
     def __str__(self):
         return self.nombre

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Categoria, Subcategoria, Marca, Producto, TagProducto, Tags, Imagenes, TallaProducto, Talla
-from .serializers import CategoriaSerializer, SubcategoriaSerializer, MarcaSerializer, ProductoSerializer, TallaSerializer, TallaProductoSerializer, TagProductoSerializer, TagSerializer, ImagenesSerializer
+from .serializers import (CategoriaSerializer, SubcategoriaSerializer, MarcaSerializer,
+ProductoSerializer, TallaSerializer, TallaProductoSerializer, TagProductoSerializer, TagSerializer, ImagenesSerializer)
 from rest_framework import permissions
 from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
